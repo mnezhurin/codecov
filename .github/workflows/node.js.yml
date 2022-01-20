@@ -26,6 +26,8 @@ jobs:
       with:
         node-version: ${{ matrix.node-version }}
         cache: 'npm'
+    - name: Install NPM modules
+      run: npm install
     - name: Run jest and check tests coverage
       run: npm run jest
     - uses: codecov/codecov-action@v2
