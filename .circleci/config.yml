@@ -6,7 +6,6 @@ version: 2.1
 # release must exist.);
 orbs:
   codecov: codecov/codecov@dev:alpha
-  node: circleci/node@4.4.0
   orb-tools: circleci/orb-tools@10.0
 
 # Pipeline parameters
@@ -37,7 +36,8 @@ jobs:
           command: "echo Hello, World!"
 
   build:
-    machine: true
+    docker:
+      - image: cimg/base:stable
     steps:
       - checkout
       - run:
