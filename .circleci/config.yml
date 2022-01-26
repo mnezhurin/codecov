@@ -16,7 +16,6 @@ jobs:
     steps:
         - codecov/upload:
             file: coverage/
-            token: '492fe176-0a7e-4b53-b0fb-d69022f3f1c9'
 # Invoke jobs via workflows
 # See: https://circleci.com/docs/2.0/configuration-reference/#workflows
 workflows:
