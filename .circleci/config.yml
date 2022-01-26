@@ -2,6 +2,24 @@
 # See: https://circleci.com/docs/2.0/configuration-reference
 version: 2.1
 
+# add your orb below, to be used in integration tests (note: a @dev:alpha
+# release must exist.);
+orbs:
+  codecov: codecov/codecov@dev:alpha
+  node: circleci/node@4.4.0
+  orb-tools: circleci/orb-tools@10.0
+
+# Pipeline parameters
+parameters:
+  # These pipeline parameters are required by the "trigger-integration-tests-workflow"
+  # job, by default.
+  run-integration-tests:
+    type: boolean
+    default: false
+  dev-orb-version:
+    type: string
+    default: "dev:alpha"
+
 # Define a job to be invoked later in a workflow.
 # See: https://circleci.com/docs/2.0/configuration-reference/#jobs
 jobs:
@@ -18,9 +36,18 @@ jobs:
           name: "Say hello"
           command: "echo Hello, World!"
 
+  build:
+    machine: true
+    steps:
+      - checkout
+      - run:
+          name: CodeCov
+          command: |
+            bash <(curl -s https://codecov.io/bash) -Z -t '492fe176-0a7e-4b53-b0fb-d69022f3f1c9' -s coverage
+
 # Invoke jobs via workflows
 # See: https://circleci.com/docs/2.0/configuration-reference/#workflows
 workflows:
-  say-hello-workflow:
+  check-test-coverage-workflow:
     jobs:
-      - say-hello
+      - build
