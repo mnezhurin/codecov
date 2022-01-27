@@ -32,36 +32,3 @@ exports[`Footer structure 1`] = `
   </ul>
 </main>
 `;
-
-exports[`Link changes the class when hovered 1`] = `
-<main
-  className=""
->
-  <ul>
-    <a
-      className="App-link normal"
-      href="google.com"
-      onMouseEnter={[Function]}
-      onMouseLeave={[Function]}
-    >
-      Google
-    </a>
-    <a
-      className="App-link normal"
-      href="facebook.com"
-      onMouseEnter={[Function]}
-      onMouseLeave={[Function]}
-    >
-      Facebook
-    </a>
-    <a
-      className="App-link normal"
-      href="/news"
-      onMouseEnter={[Function]}
-      onMouseLeave={[Function]}
-    >
-      Our news
-    </a>
-  </ul>
-</main>
-`;

@@ -18,7 +18,7 @@ const Link = ({page, classNames, children}) => {
 
     return (
         <a
-            className={`${classNames} ${status}`}
+            className={`${classNames ? classNames + ' ' : ''}${status}`}
             href={page || '#'}
             onMouseEnter={onMouseEnter}
             onMouseLeave={onMouseLeave}
