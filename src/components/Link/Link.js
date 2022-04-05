@@ -5,7 +5,7 @@ const STATUS = {
     NORMAL: 'normal',
 };
 
-const Link = ({page, classNames, children}) => {
+const Link = ({page, classNames, isNew = false, children}) => {
     const [status, setStatus] = useState(STATUS.NORMAL);
 
     const onMouseEnter = () => {
@@ -18,7 +18,7 @@ const Link = ({page, classNames, children}) => {
 
     return (
         <a
-            className={`${classNames ? classNames + ' ' : ''}${status}`}
+            className={`${classNames ? classNames + ' ' : ''}${status} ${isNew ? ' new-link' : ''}`}
             href={page || '#'}
             onMouseEnter={onMouseEnter}
             onMouseLeave={onMouseLeave}
