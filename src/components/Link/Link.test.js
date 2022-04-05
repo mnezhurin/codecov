@@ -21,3 +21,12 @@ test('Link changes the class when hovered', () => {
     tree = component.toJSON();
     expect(tree).toMatchSnapshot();
 });
+
+test('Should generate link with # if the property page is not passed', () => {
+    const component = renderer.create(
+        <Link>Form</Link>,
+    );
+    let tree = component.toJSON();
+
+    expect(tree.props.href).toEqual('#')
+});
