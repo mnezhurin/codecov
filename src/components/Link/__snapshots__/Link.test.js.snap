@@ -32,3 +32,14 @@ exports[`Link changes the class when hovered 3`] = `
   Google
 </a>
 `;
+
+exports[`new test casenew link for  1`] = `
+<a
+  className="normal  new-link"
+  href="#"
+  onMouseEnter={[Function]}
+  onMouseLeave={[Function]}
+>
+  New link
+</a>
+`;
